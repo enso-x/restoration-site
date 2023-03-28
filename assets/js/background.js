@@ -1,26 +1,26 @@
 // set up global javascript variables
 
-var canvas, gl; // canvas and webgl context
+let canvas, gl; // canvas and webgl context
 
-var shaderScript;
-var shaderSource;
-var vertexShader; // Vertex shader.  Not much happens in that shader, it just creates the vertex's to be drawn on
-var fragmentShader; // this shader is where the magic happens. Fragment = pixel.  Vertex = kind of like "faces" on a 3d model.
-var buffer;
+let shaderScript;
+let shaderSource;
+let vertexShader; // Vertex shader.  Not much happens in that shader, it just creates the vertex's to be drawn on
+let fragmentShader; // this shader is where the magic happens. Fragment = pixel.  Vertex = kind of like "faces" on a 3d model.
+let buffer;
 
 
 /* Variables holding the location of uniform variables in the WebGL. We use this to send info to the WebGL script. */
-var locationOfTime;
-var locationOfResolution;
+let locationOfTime;
+let locationOfResolution;
 
-var startTime = new Date().getTime(); // Get start time for animating
-var currentTime = 0;
+let startTime = new Date().getTime(); // Get start time for animating
+let currentTime = 0;
 
 function init() {
 	// standard canvas setup here, except get webgl context
 	canvas = document.getElementById('glscreen');
 	gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-	canvas.width  = window.innerWidth;
+	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
 	// give WebGL it's viewport
@@ -34,21 +34,21 @@ function init() {
 		new Float32Array([
 			-1.0, -1.0,
 			1.0, -1.0,
-			-1.0,  1.0,
-			-1.0,  1.0,
+			-1.0, 1.0,
+			-1.0, 1.0,
 			1.0, -1.0,
-			1.0,  1.0]),
+			1.0, 1.0 ]),
 		gl.STATIC_DRAW
 	); // ^^ That up there sets up the vertex's used to draw onto. I think at least, I haven't payed much attention to vertex's yet, for all I know I'm wrong.
 
-	shaderScript = document.getElementById("2d-vertex-shader");
+	shaderScript = document.getElementById('2d-vertex-shader');
 	shaderSource = shaderScript.text;
 	vertexShader = gl.createShader(gl.VERTEX_SHADER); //create the vertex shader from script
 	gl.shaderSource(vertexShader, shaderSource);
 	gl.compileShader(vertexShader);
 
-	shaderScript   = document.getElementById("2d-fragment-shader");
-	shaderSource   = shaderScript.text;
+	shaderScript = document.getElementById('2d-fragment-shader');
+	shaderSource = shaderScript.text;
 	fragmentShader = gl.createShader(gl.FRAGMENT_SHADER); //create the fragment from script
 	gl.shaderSource(fragmentShader, shaderSource);
 	gl.compileShader(fragmentShader);
@@ -67,8 +67,8 @@ function init() {
 	We use the gl.getUniformLocation function to do this, and pass thru the program variable we created above, as well as the name of the uniform variable in our shader.
 
 	*/
-	locationOfResolution = gl.getUniformLocation(program, "u_resolution");
-	locationOfTime = gl.getUniformLocation(program, "u_time");
+	locationOfResolution = gl.getUniformLocation(program, 'u_resolution');
+	locationOfTime = gl.getUniformLocation(program, 'u_time');
 
 
 	/*
@@ -91,7 +91,7 @@ function init() {
 }
 
 function render() {
-	var now = new Date().getTime();
+	let now = new Date().getTime();
 	currentTime = (now - startTime) / 1000; // update the current time for animations
 
 
@@ -99,21 +99,21 @@ function render() {
 
 	window.requestAnimationFrame(render, canvas); // request the next frame
 
-	positionLocation = gl.getAttribLocation(program, "a_position"); // do stuff for those vertex's
+	positionLocation = gl.getAttribLocation(program, 'a_position'); // do stuff for those vertex's
 	gl.enableVertexAttribArray(positionLocation);
 	gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 	gl.drawArrays(gl.TRIANGLES, 0, 6);
 }
 
-window.addEventListener('load', function(event){
+window.addEventListener('load', function(event) {
 	init();
 });
 
-window.addEventListener('resize', function(event){
+window.addEventListener('resize', function(event) {
 	// just re-doing some stuff in the init here, to enable resizing.
 
-	canvas.width  = window.innerWidth;
+	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	gl.viewport(0, 0, window.innerWidth, window.innerHeight);
-	locationOfResolution = gl.getUniformLocation(program, "u_resolution");
+	locationOfResolution = gl.getUniformLocation(program, 'u_resolution');
 });
