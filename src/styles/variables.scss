@@ -1,0 +1,15 @@
+$accent-color: #bda17e;
+$secondary-color: #2e2c2a;
+$hover-color: #a57138;
+$border-color: #353130;
+$text-color: #fff;
+$text-secondary-color: #939190;
+
+:export {
+	accentColor: $accent-color;
+	secondaryColor: $secondary-color;
+	hoverColor: $hover-color;
+	borderColor: $border-color;
+	textColor: $text-color;
+	textSecondaryColor: $text-secondary-color;
+}
