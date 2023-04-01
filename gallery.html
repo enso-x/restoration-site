@@ -170,10 +170,10 @@
 				<p>Заполните форму или позвоните по телефону на сайте</p>
 			</div>
 			<div class="modal__content-block">
-				<input type="text" placeholder="Имя*">
-				<input type="text" placeholder="Телефон*">
-				<textarea placeholder="Комментарий"></textarea>
-				<input type="file">
+				<input name="name" type="text" placeholder="Имя*">
+				<input name="mobile" type="text" placeholder="Телефон*">
+				<textarea name="comment" placeholder="Комментарий"></textarea>
+				<input name="photo" type="file">
 			</div>
 			<button class="btn">Оставить заявку</button>
 			<span class="modal__terms">Нажимая на кнопку вы даёте согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности</span>
@@ -330,10 +330,12 @@
 	// ]]>
 </script>
 <canvas id="glscreen"></canvas>
+<script src="assets/js/inputmask.min.js"></script>
 <script src="assets/js/background.js"></script>
 <script src="assets/js/urlReplacer.js"></script>
 <script src="assets/js/modalWindow.js"></script>
 <script src="assets/js/imagePreview.js"></script>
+<script src="assets/js/phoneMask.js"></script>
 <script src="assets/js/mobile.js"></script>
 </body>
 </html>
