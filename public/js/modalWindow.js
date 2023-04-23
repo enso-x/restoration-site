@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const modals = document.querySelectorAll('[data-modal]');
 
 	const showModal = (modal) => {
+		document.body.style.overflow = 'hidden';
 		modal.style.display = 'flex';
 		setTimeout(() => {
 			modal.style.opacity = '1';
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		modal.style.opacity = '0';
 		setTimeout(() => {
 			modal.style.display = 'none';
+			document.body.style.overflow = '';
 		}, 200);
 	};
 

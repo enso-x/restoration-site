@@ -1,0 +1,23 @@
+.header {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+
+	&__inner {
+		display: flex;
+		width: 1408px;
+		margin: 0 auto;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__content {
+		display: flex;
+		gap: 80px;
+	}
+
+	&__mobile-menu-button {
+		display: none;
+	}
+}

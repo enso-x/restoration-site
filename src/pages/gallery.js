@@ -6,9 +6,9 @@ import Footer from '@/components/Footer';
 import ContactsModal from '@/components/modals/Contacts';
 import ImagePreviewModal, { IMAGE_PREVIEW_MODAL_KEY } from '@/components/modals/ImagePreview';
 
-export default function Gallery() {
+export default function Gallery({ photos }) {
 	return (
-		<div className="page-main">
+		<div className="page-gallery">
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 				<title>Pictura - Restoration gallery</title>
@@ -20,101 +20,17 @@ export default function Gallery() {
 			</Header>
 			<main>
 				<section className="gallery-main">
-					<div className="block-title">
+					<div className="title">
 						<h3>Галерея</h3>
 					</div>
 					<div className="gallery-main__container">
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery.jpg"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery2.webp"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery3.jpg"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery4.jpg"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery.jpg"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery2.webp"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
-						<div className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
-							<img src="/images/gallery/gallery3.jpg"/>
-							<div className="gallery-main__description">
-								<span>Загаловок</span>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deserunt,
-									ducimus eligendi
-									ipsam laboriosam libero magni nisi non qui tempora! A architecto assumenda atque
-									esse eveniet,
-									harum hic itaque iure laboriosam magnam molestiae natus nesciunt officia, quae
-									qui reiciendis,
-									sint.</p>
-							</div>
-						</div>
+						{
+							photos.map(photoUrl => (
+								<div key={ photoUrl } className="gallery-main__item" data-modal-open={ IMAGE_PREVIEW_MODAL_KEY }>
+									<img src={ photoUrl } alt="Photo"/>
+								</div>
+							))
+						}
 					</div>
 				</section>
 			</main>
@@ -127,3 +43,14 @@ export default function Gallery() {
 		</div>
 	);
 }
+
+export const getServerSideProps = async (context) => {
+	const proto = context.req.headers['x-forwarded-proto'] ? 'https' : 'http';
+	const photos = await fetch(`${ proto }://${ context.req.headers.host }/api/getPhotos`).then(res => res.json());
+
+	return ({
+		props: {
+			photos
+		}
+	});
+};

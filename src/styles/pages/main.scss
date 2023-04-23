@@ -1,0 +1,31 @@
+.page-main {
+	position: relative;
+
+	> * {
+		z-index: 1;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		pointer-events: none;
+		background: url("/images/content_bg.png") no-repeat;
+		background-position: center 1200px;
+		background-size: initial;
+	}
+
+	.services  {
+		padding-top: 40px;
+
+		.cards {
+			margin: 48px auto;
+		}
+	}
+
+}

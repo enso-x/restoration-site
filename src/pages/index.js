@@ -43,12 +43,12 @@ export default function Home() {
 					<span>Лихачев Д.С.</span>
 					<p>Советский филолог</p>
 				</section>
-				<section id="services" className="services cards">
-					<div className="block-title">
+				<section id="services" className="services">
+					<div className="title">
 						<h3>Наши услуги</h3>
 					</div>
-					<div className="cards__items container">
-						<div className="card">
+					<div className="cards container">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/rest.svg" alt="Error"/>
 								<span>Покраска и реставрация</span>
@@ -63,7 +63,7 @@ export default function Home() {
 								<p>От 1 200 руб. / погонный метр</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/vost.svg" alt="Error"/>
 								<span>Восстановление покрытий</span>
@@ -78,7 +78,7 @@ export default function Home() {
 								<p>От 3 000 руб. / квадратный метр</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/pog.svg" alt="Error"/>
 								<span>Ремонт погонажных изделий</span>
@@ -90,7 +90,7 @@ export default function Home() {
 								<p>От 2 000 руб. / погонный метр</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/meb.svg" alt="Error"/>
 								<span>Реставрация мебели</span>
@@ -108,7 +108,7 @@ export default function Home() {
 								<p>Цена: От 3 000 руб. / деталь</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/bro.svg" alt="Error"/>
 								<span>Устранение повреждений</span>
@@ -126,7 +126,7 @@ export default function Home() {
 								<p>Цена: От 5 000 руб.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/rad.svg" alt="Error"/>
 								<span>Декор радиаторов</span>
@@ -144,7 +144,7 @@ export default function Home() {
 					</div>
 				</section>
 				<section className="work-plan">
-					<div className="block-title">
+					<div className="title">
 						<h3>Как мы работаем</h3>
 					</div>
 					<div className="work-plan__container">
@@ -219,12 +219,12 @@ export default function Home() {
 						</div>
 					</div>
 				</section>
-				<section className="advantages cards">
-					<div className="block-title">
+				<section className="advantages">
+					<div className="title">
 						<h3>Наши преимущества</h3>
 					</div>
-					<div className="cards__items container">
-						<div className="card">
+					<div className="cards container">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/rab.svg" alt="Error"/>
 								<span>Опытные мастера</span>
@@ -235,7 +235,7 @@ export default function Home() {
 									технологиями, чтобы вернуть вашу вещь к жизни.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/pod.svg" alt="Error"/>
 								<span>Индивидуальный подход</span>
@@ -247,7 +247,7 @@ export default function Home() {
 									привлекательной.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/mat.svg" alt="Error"/>
 								<span>Качественные материалы</span>
@@ -260,7 +260,7 @@ export default function Home() {
 									но и гарантировать долговечность реставрации вашей вещи.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/tim.svg" alt="Error"/>
 								<span>Гибкий график работы</span>
@@ -273,7 +273,7 @@ export default function Home() {
 									вашей вещи максимально удобным и приятным.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/val.svg" alt="Error"/>
 								<span>Профессиональная покраска</span>
@@ -286,7 +286,7 @@ export default function Home() {
 									выбор цветов и оттенков, чтобы ваша вещь выглядела идеально.</p>
 							</div>
 						</div>
-						<div className="card">
+						<div className="cards__item card">
 							<div className="card__content">
 								<img src="/images/mon.svg" alt="Error"/>
 								<span>Экономия времени и денег</span>
@@ -300,7 +300,7 @@ export default function Home() {
 					</div>
 				</section>
 				<section id="gallery" className="gallery">
-					<div className="block-title">
+					<div className="title">
 						<h3>Примеры наших работ</h3>
 					</div>
 					<div className="gallery__items">
@@ -317,9 +317,9 @@ export default function Home() {
 							<img src="/images/gallery/gallery4.jpg" alt="Error"/>
 						</div>
 					</div>
-					<div className="gallery__button">
+					<div className="gallery__show-all">
 						<a href="/gallery">
-							<button className="gallery__btn">Показать все</button>
+							<button className="btn">Показать все</button>
 						</a>
 					</div>
 				</section>

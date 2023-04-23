@@ -1,0 +1,114 @@
+.page-gallery {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	> *:not(.header, .modal-container) {
+		z-index: 1;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		pointer-events: none;
+		background: url("/images/gallery_bg.png") no-repeat;
+		background-position: center 120px;
+		background-size: initial;
+	}
+
+	.gallery-main {
+		padding-top: 230px;
+
+		&__container {
+			width: 1400px;
+			margin: 0 auto;
+			display: grid;
+			gap: 20px;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		&__item {
+			position: relative;
+			cursor: pointer;
+			transition: all 0.2s linear;
+			border: 3px solid var(--border-color);
+			box-shadow: 0 4px 8px #000;
+			box-sizing: border-box;
+			overflow: hidden;
+
+			&::before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.7);
+				transition: background 0.2s linear;
+			}
+
+			&:hover {
+				box-shadow: 0 4px 8px var(--hover-color);
+				border-color: var(--accent-color);
+
+				&::before {
+					background: rgba(0, 0, 0, 0);
+				}
+
+				.gallery-main__description {
+					transform: translateY(0%);
+				}
+			}
+
+			img {
+				width: 100%;
+				height: 352px;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+
+		&__description {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2px;
+			padding: 24px 18px;
+			background: rgba(0, 0, 0, 0.6);
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			box-sizing: border-box;
+			transform: translateY(100%);
+			transition: transform 0.2s linear;
+
+			span {
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 20px;
+				color: var(--text-color);
+			}
+
+			p {
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 17px;
+				color: var(--text-secondary-color);
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}

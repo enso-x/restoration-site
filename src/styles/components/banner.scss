@@ -1,0 +1,36 @@
+.banner {
+	position: relative;
+	display: flex;
+	margin: 0 auto;
+	width: 1408px;
+	align-items: center;
+	padding: 300px 0 0;
+	justify-content: space-between;
+	background: url("/images/banner_bg.png") no-repeat;
+	background-position: 0 100px;
+	background-size: auto 100%;
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		gap: 34px;
+	}
+
+	h2 {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 59px;
+		color: var(--text-color);
+		margin: 0;
+		padding: 0;
+		cursor: default;
+	}
+
+	p {
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 29px;
+		color: var(--text-secondary-color);
+		cursor: default;
+	}
+}

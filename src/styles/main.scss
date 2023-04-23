@@ -1,4 +1,22 @@
 @import "variables";
-@import "old";
+@import "base";
+
+@import "components/button";
+@import "components/title";
+@import "components/logo";
+@import "components/modal";
+@import "components/menu-button";
+@import "components/header";
+@import "components/navigation";
+@import "components/banner";
+@import "components/quote";
+@import "components/cards";
+@import "components/card";
+@import "components/work-plan";
+@import "components/gallery";
+@import "components/footer";
+
+@import "pages/main";
+@import "pages/gallery";
 
 @import "mobile";

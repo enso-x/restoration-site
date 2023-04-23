@@ -1,0 +1,20 @@
+.btn {
+	background-color: var(--accent-color);
+	border-radius: 4px;
+	color: var(--text-color);
+	border: 0;
+	width: 270px;
+	height: 64px;
+	font-family: 'Montserrat', sans-serif;
+	cursor: pointer;
+	filter: brightness(1.0);
+	transition: filter 50ms ease-out;
+
+	&:hover {
+		filter: brightness(1.1);
+	}
+
+	&:active {
+		filter: brightness(0.9);
+	}
+}

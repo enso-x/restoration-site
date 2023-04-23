@@ -1,4 +1,4 @@
-export const IMAGE_PREVIEW_MODAL_KEY = 'feedback';
+export const IMAGE_PREVIEW_MODAL_KEY = 'gallery-image';
 
 export default function ImagePreview() {
 	return (
