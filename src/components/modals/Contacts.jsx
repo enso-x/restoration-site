@@ -3,7 +3,7 @@ export const CONTACTS_MODAL_KEY = 'feedback';
 export default function ContactsModal() {
 	return (
 		<div className="modal-background" data-modal={ CONTACTS_MODAL_KEY }>
-			<div className="modal">
+			<form className="modal" id="contact-form">
 				<button className="modal__close" data-modal-close={ CONTACTS_MODAL_KEY }>
 					<img src="/images/close.svg" alt="Close icon"/>
 				</button>
@@ -20,9 +20,9 @@ export default function ContactsModal() {
 					<textarea name="comment" placeholder="Комментарий"></textarea>
 					<input name="photo" type="file"/>
 				</div>
-				<button className="btn">Оставить заявку</button>
+				<button type="button" className="btn" id="send-button">Оставить заявку</button>
 				<span className="modal__terms">Нажимая на кнопку вы даёте согласие на обработку персональных данных и соглашаетесь с политикой конфиденциальности</span>
-			</div>
+			</form>
 		</div>
 	);
 };
