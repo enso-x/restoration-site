@@ -4,7 +4,7 @@ export default function ContactsModal() {
 	return (
 		<div className="modal-background" data-modal={ CONTACTS_MODAL_KEY }>
 			<form className="modal" id="contact-form">
-				<button className="modal__close" data-modal-close={ CONTACTS_MODAL_KEY }>
+				<button type="button" className="modal__close" data-modal-close={ CONTACTS_MODAL_KEY }>
 					<img src="/images/close.svg" alt="Close icon"/>
 				</button>
 				<div className="modal__content-block gap:xs">
