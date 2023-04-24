@@ -20,7 +20,7 @@ async function saveFormData(fields, files) {
 
 	const mailData = {
 		from: 'Pictura',
-		to: process.env.EMAIL_ADDRESS,
+		to: process.env.EMAIL_TO_SEND,
 		subject: `Contact form`,
 		text: '',
 		html: `
