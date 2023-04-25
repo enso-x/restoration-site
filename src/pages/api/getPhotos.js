@@ -4,7 +4,16 @@ const handler = async (
 	req,
 	res
 ) => {
-	const files = fs.readdirSync(process.cwd() + '/public/images/gallery');
+	const dirPath = `${process.cwd()}/public/images/gallery`;
+
+	const files = fs.readdirSync(dirPath).map(file => ({
+		fileName: file,
+		dateChanged: fs.statSync(`${dirPath}/${file}`).mtime.getTime()
+	})).sort(function(a, b) {
+		return b.dateChanged -
+			a.dateChanged;
+	}).map(fileInfo => fileInfo.fileName);
+
 	const result = [];
 
 	for (let file of files) {

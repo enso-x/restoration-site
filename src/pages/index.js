@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 
 import ContactsModal, { CONTACTS_MODAL_KEY } from '@/components/modals/Contacts';
 
-export default function Home() {
+export default function Home({ photos }) {
 	return (
 		<div className="page-main">
 			<Head>
@@ -304,18 +304,13 @@ export default function Home() {
 						<h3>Примеры наших работ</h3>
 					</div>
 					<div className="gallery__items">
-						<div className="gallery__item">
-							<img src="/images/gallery/gallery.png" alt="Error"/>
-						</div>
-						<div className="gallery__item">
-							<img src="/images/gallery/gallery2.png" alt="Error"/>
-						</div>
-						<div className="gallery__item">
-							<img src="/images/gallery/gallery3.png" alt="Error"/>
-						</div>
-						<div className="gallery__item">
-							<img src="/images/gallery/gallery4.jpg" alt="Error"/>
-						</div>
+						{
+							photos.slice(0, 4).map(photoUrl => (
+								<div key={ photoUrl } className="gallery__item">
+									<img src={ photoUrl } alt="Photo"/>
+								</div>
+							))
+						}
 					</div>
 					<div className="gallery__show-all">
 						<a href="/gallery">
@@ -331,3 +326,14 @@ export default function Home() {
 		</div>
 	);
 }
+
+export const getServerSideProps = async (context) => {
+	const proto = context.req.headers['x-forwarded-proto'] ? 'https' : 'http';
+	const photos = await fetch(`${ proto }://${ context.req.headers.host }/api/getPhotos`).then(res => res.json());
+
+	return ({
+		props: {
+			photos
+		}
+	});
+};
