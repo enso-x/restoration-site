@@ -4,9 +4,9 @@ export default function Header({ children }) {
 			<div className="header__inner">
 				<a href="/" className="logo">
 					<img src="/images/logo.svg" alt="Error"/>
-					<span>Комфорт</span>
-					<span>Эстетика</span>
-					<span>Надёжность</span>
+					<span className="bold">Реставрация</span>
+					<span>Оконный сервис</span>
+					<span>Дверной сервис</span>
 				</a>
 				<div className="header__content">
 					<div className="header__mobile-menu-button">
