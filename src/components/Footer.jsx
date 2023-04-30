@@ -3,8 +3,10 @@ import { CONTACTS_MODAL_KEY } from '@/components/modals/Contacts';
 export default function Footer() {
 	return (
 		<footer className="footer">
-			<div className="logo">
-				<img src="/images/logo.svg" alt="Error"/>
+			<div className="footer__logo">
+				<div className="logo">
+					<img src="/images/logo.svg" alt="Error"/>
+				</div>
 			</div>
 			<div className="footer__contacts">
 				<div className="footer__contacts-info">
