@@ -19,7 +19,7 @@ export default function Header({ children }) {
 							{ children }
 						</ul>
 					</nav>
-					<div className="contact"><a href="tel:+74998421212">+7 (499) 842 12 12</a></div>
+					<div className="contact"><a href="tel:+79774070396">+7 (977) 407 03 96</a></div>
 				</div>
 			</div>
 		</header>

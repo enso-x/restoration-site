@@ -16,7 +16,7 @@ export default function Footer() {
 					</div>
 					<div className="footer__contacts-item">
 						<span>Контакты</span>
-						<a href="tel:+74998421212">+7 (499) 842 12 12</a>
+						<a href="tel:+79774070396">+7 (977) 407 03 96</a>
 					</div>
 				</div>
 				<div className="footer__contacts-feedback">
@@ -39,9 +39,9 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="footer__info-address">
-						<span>
+					<span>
 						© 2019-2023 Реставрация мебели г. Москва.
-						</span>
+					</span>
 				</div>
 			</div>
 		</footer>
