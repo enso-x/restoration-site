@@ -12,7 +12,7 @@ export default function Document() {
 					href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
 					rel="stylesheet"/>
 				<meta name="description" content="Pictura restoration company"/>
-				<meta name="yandex-verification" content="07f3cb068272616a" />
+				<meta name="yandex-verification" content="efa22e67593a9ded" />
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 			<body>
