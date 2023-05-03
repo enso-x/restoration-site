@@ -13,7 +13,7 @@ export default function Document() {
 					rel="stylesheet"/>
 				<meta name="description" content="Pictura restoration company"/>
 				<meta name="yandex-verification" content="efa22e67593a9ded" />
-				<link rel="icon" href="/favicon.ico"/>
+				<link rel="icon" href="/images/favicon.png"/>
 			</Head>
 			<body>
 			<Main/>
